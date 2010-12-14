@@ -374,6 +374,13 @@ config MACH_VISION
        help
          Support for the Qualcomm MSM7x30 Vision board.
 
+config MACH_GLACIER
+       depends on ARCH_MSM7X30
+       depends on !MSM_STACKED_MEMORY
+       default n
+       bool "MSM7x30 GLACIER"
+       help
+         Support for the Qualcomm MSM7x30 Glacier board.
 config MACH_SPADE
        depends on ARCH_MSM7X30
        depends on !MSM_STACKED_MEMORY

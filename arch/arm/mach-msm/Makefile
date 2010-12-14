@@ -125,6 +125,15 @@ obj-$(CONFIG_MACH_SPADE)+= board-spade-audio.o
 obj-$(CONFIG_MACH_SPADE)+= board-spade-mmc.o board-spade-wifi.o htc_awb_cal.o
 obj-$(CONFIG_MACH_SPADE)+= board-spade-rfkill.o htc_bluetooth.o board-spade-panel.o
 
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-keypad.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-microp.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-audio.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-mmc.o board-glacier-wifi.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-rfkill.o
+obj-$(CONFIG_MACH_GLACIER)+= htc_fmtx_rfkill.o
+obj-$(CONFIG_MACH_GLACIER)+= board-glacier-panel.o htc_bluetooth.o
+
 # MSM7200A boards
 obj-$(CONFIG_MACH_HERO) += board-hero.o board-hero-panel.o board-hero-keypad.o
 obj-$(CONFIG_MACH_HERO) += board-hero-rfkill.o
