@@ -10,7 +10,7 @@ SCHED_FEAT(FAIR_SLEEPERS, 1)
  * them to run sooner, but does not allow tons of sleepers to
  * rip the spread apart.
  */
-SCHED_FEAT(GENTLE_FAIR_SLEEPERS, 0)
+SCHED_FEAT(GENTLE_FAIR_SLEEPERS, 1)
 
 /*
  * By not normalizing the sleep time, heavy tasks get an effective
@@ -28,7 +28,7 @@ SCHED_FEAT(START_DEBIT, 1)
 /*
  * Should wakeups try to preempt running tasks.
  */
-SCHED_FEAT(WAKEUP_PREEMPT, 0)
+SCHED_FEAT(WAKEUP_PREEMPT, 1)
 
 /*
  * Compute wakeup_gran based on task behaviour, clipped to
@@ -40,7 +40,7 @@ SCHED_FEAT(ADAPTIVE_GRAN, 1)
  * When converting the wakeup granularity to virtual time, do it such
  * that heavier tasks preempting a lighter task have an edge.
  */
-SCHED_FEAT(ASYM_GRAN, 0)
+SCHED_FEAT(ASYM_GRAN, 1)
 
 /*
  * Always wakeup-preempt SYNC wakeups, see SYNC_WAKEUPS.

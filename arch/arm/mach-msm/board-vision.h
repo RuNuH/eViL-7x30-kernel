@@ -164,8 +164,4 @@ int vision_init_mmc(unsigned int sys_rev);
 void __init vision_audio_init(void);
 int __init vision_init_keypad(void);
 int __init vision_wifi_init(void);
-
-#define VISION_MIN_UV_MV    (850)
-#define VISION_MAX_UV_MV    (1275)
-
 #endif /* __ARCH_ARM_MACH_MSM_BOARD_VISION_H */

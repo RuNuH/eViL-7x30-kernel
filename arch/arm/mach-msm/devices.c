@@ -23,9 +23,9 @@
 #include <mach/msm_iomap.h>
 #include <mach/dma.h>
 #include <mach/board.h>
-#ifdef CONFIG_MSM_RMT_STORAGE_SERVER
+
 #include "smd_private.h"
-#endif
+
 #include <asm/mach/flash.h>
 #include <linux/mtd/nand.h>
 #include <linux/mtd/partitions.h>

@@ -99,6 +99,14 @@ int wifi_get_dot11n_enable(void)
         return 0;
 }
 
+int wifi_get_cscan_enable(void)
+{
+        if (wifi_control_data && wifi_control_data->cscan_enable) {
+                return wifi_control_data->cscan_enable;
+        }
+        return 0;
+}
+
 int wifi_set_carddetect(int on)
 {
 	myprintf("%s = %d\n", __FUNCTION__, on);

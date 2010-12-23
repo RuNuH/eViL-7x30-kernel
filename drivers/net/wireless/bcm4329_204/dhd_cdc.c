@@ -1159,6 +1159,8 @@ dhd_prot_stop(dhd_pub_t *dhd)
  */
 static unsigned int dhdhtc_power_ctrl_mask = 0;
 int dhdcdc_power_active_while_plugin = 1;
+int dhdcdc_wifiLock = 0; /* to keep wifi power mode as PM_FAST and bcn_li_dtim as 0 */
+
 
 int dhdhtc_update_wifi_power_mode(int is_screen_off)
 {
@@ -1179,11 +1181,11 @@ int dhdhtc_update_wifi_power_mode(int is_screen_off)
 		pm_type = PM_OFF;
 		dhdcdc_set_ioctl(dhd, 0, WLC_SET_PM, &pm_type, sizeof(pm_type));
 	} else {
-		if (is_screen_off)
+		if (is_screen_off && !dhdcdc_wifiLock)
 			pm_type = PM_MAX;
 		else
 			pm_type = PM_FAST;
-		myprintf("update pm: %s\n", pm_type==1?"PM_MAX":"PM_FAST");
+		myprintf("update pm: %s, wifiLock: %d\n", pm_type==1?"PM_MAX":"PM_FAST", dhdcdc_wifiLock);
 		dhdcdc_set_ioctl(dhd, 0, WLC_SET_PM, &pm_type, sizeof(pm_type));
 	}
 
@@ -1228,7 +1230,7 @@ int dhdhtc_update_dtim_listen_interval(int is_screen_off)
 		return -1;
 	}
 
-	if (wl_iw_is_during_wifi_call() || !is_screen_off)
+	if (wl_iw_is_during_wifi_call() || !is_screen_off || dhdcdc_wifiLock)
 		bcn_li_dtim = 0;
 	else
 		bcn_li_dtim = 3;

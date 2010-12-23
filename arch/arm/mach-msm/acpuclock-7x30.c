@@ -482,7 +482,7 @@ static void __init lpj_init(void)
 	}
 }
 
-/* Update frequency tables for a 1024MHz PLL2. */
+/* Update frequency tables for a 1017.6MHz PLL2. */
 void __init pll2_1024mhz_fixup(void)
 {
 	if (acpu_freq_tbl[ARRAY_SIZE(acpu_freq_tbl)-2].acpu_clk_khz != 806400
@@ -506,10 +506,10 @@ void __init msm_acpu_clock_init(struct msm_acpu_clock_platform_data *clkdata)
 	drv_state.power_collapse_khz = clkdata->power_collapse_khz;
 	drv_state.wfi_ramp_down = 1;
 	drv_state.pwrc_ramp_down = 1;
-	/* PLL2 runs at 1024MHz for MSM8x55. */
-	// Commented out so we can try to overclock!
-	//if (cpu_is_msm8x55())
-		//pll2_1024mhz_fixup();
+	/* PLL2 runs at 1017.6MHz for MSM8x55. */
+	if (cpu_is_msm8x55()) {
+		pll2_1024mhz_fixup();
+	}
 	acpuclk_init();
 	lpj_init();
 
